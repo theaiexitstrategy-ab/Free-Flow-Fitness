@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function BookingPaths({
   onBookLesson,
 }: {
@@ -12,9 +14,9 @@ export default function BookingPaths({
             Birthdays, bachelorettes, bridal showers, girls&apos; nights — pick
             a package below and we&apos;ll handle the rest.
           </p>
-          <a href="#parties" className="btn btn-magenta">
+          <Link href="/parties" className="btn btn-magenta">
             See Party Packages
-          </a>
+          </Link>
         </div>
         <div className="path-card">
           <h3>Want 1-on-1 Time?</h3>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero({
   onBookLesson,
 }: {
@@ -6,12 +8,12 @@ export default function Hero({
   return (
     <section className="hero">
       <div className="wrap">
-        {/* cobalt-blue logo */}
+        {/* cobalt-blue logo — the branded focal point */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="hero-logo"
           src="/logos/ff-cobalt.png"
-          alt="Free Flow Pole Fitness Studio"
+          alt="Free Flow Fitness — Pole Fitness Studio"
         />
         <h1>Come experience the sexy, flirty side of fitness.</h1>
         <p className="lede">
@@ -19,9 +21,9 @@ export default function Hero({
           small group pole and dance classes in Bridgeton, MO.
         </p>
         <div className="hero-ctas">
-          <a href="#parties" className="btn btn-magenta">
+          <Link href="/parties" className="btn btn-magenta">
             Book a Party
-          </a>
+          </Link>
           <button
             type="button"
             className="btn btn-outline"

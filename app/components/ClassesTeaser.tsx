@@ -1,9 +1,5 @@
+import Link from "next/link";
 import { WEEKLY_CLASSES } from "@/lib/classes";
-
-// Weekly-class booking uses the studio's existing schedule system, which is a
-// separate flow from party/private-lesson bookings. Point this at the real
-// schedule URL when it's available; falls back to the Visit Us section.
-const SCHEDULE_URL = process.env.NEXT_PUBLIC_CLASS_SCHEDULE_URL || "#visit";
 
 export default function ClassesTeaser() {
   return (
@@ -28,9 +24,9 @@ export default function ClassesTeaser() {
         </div>
 
         <div className="classes-cta">
-          <a href={SCHEDULE_URL} className="btn btn-outline">
-            See Full Schedule &amp; Book a Class
-          </a>
+          <Link href="/schedule" className="btn btn-outline">
+            Check out our schedule
+          </Link>
         </div>
       </div>
     </section>

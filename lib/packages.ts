@@ -7,14 +7,18 @@
 //   private-group $225  -> $112.50 deposit (50%)
 //   body-painting $300  -> INQUIRY ONLY (no customer deposit listed / confirmed)
 //
+// DRAFT packages (draft: true) are PROPOSALS pending Adrianne's approval. They
+// are inquiry-only (no deposit) so nothing can be charged until confirmed.
+//
 // NOTE: deposits are charged by the GoElev8 portal via Stripe Checkout, not here.
-// This catalog only tells the frontend what to display and what to request.
 
 export type PackageId =
   | "fab-flow"
   | "ultimate-flow"
   | "private-group"
-  | "body-painting";
+  | "body-painting"
+  | "mini-flow"
+  | "vip-flow";
 
 export interface PartyPackage {
   id: PackageId;
@@ -27,6 +31,8 @@ export interface PartyPackage {
   depositLabel: string;
   featured?: boolean;
   tag?: string;
+  /** Proposed tier awaiting approval — rendered with a DRAFT flag, never charges. */
+  draft?: boolean;
   duration: string;
   features: string[];
   /** Dance styles offered for this package (empty = not applicable). */
@@ -105,6 +111,44 @@ export const PARTY_PACKAGES: PartyPackage[] = [
     danceStyles: [],
     ctaLabel: "Book This Party",
   },
+
+  // ── DRAFT tiers (pending Adrianne's approval — inquiry-only, no charge) ──
+  {
+    id: "mini-flow",
+    name: "Mini Flow Party",
+    price: 175,
+    depositCents: null,
+    depositLabel: "Reserve by request",
+    draft: true,
+    tag: "Draft",
+    duration: "60 minutes — a shorter, budget-friendly option",
+    features: [
+      "TODO: 60 min — quick, high-energy party",
+      "TODO: up to 5 people",
+      "TODO: one dance style",
+      "PROPOSED — confirm details & price with Adrianne",
+    ],
+    danceStyles: ["Pole", "Twerk"],
+    ctaLabel: "Request This Party",
+  },
+  {
+    id: "vip-flow",
+    name: "VIP Flow Experience",
+    price: 550,
+    depositCents: null,
+    depositLabel: "Reserve by request",
+    draft: true,
+    tag: "Draft",
+    duration: "2.5 hours — the deluxe, everything-included tier",
+    features: [
+      "TODO: 2.5 hours dancing + hangout",
+      "TODO: larger group + premium add-ons included",
+      "TODO: champagne toast / themed décor / photos",
+      "PROPOSED — confirm details & price with Adrianne",
+    ],
+    danceStyles: ["Pole", "Chair", "Burlesque", "Sexy Floorwork", "Twerk"],
+    ctaLabel: "Request This Party",
+  },
 ];
 
 export function getPackage(id: PackageId): PartyPackage | undefined {
@@ -114,7 +158,5 @@ export function getPackage(id: PackageId): PartyPackage | undefined {
 /** Dollars display helper, e.g. 15000 -> "$150", 11250 -> "$112.50". */
 export function formatCents(cents: number): string {
   const dollars = cents / 100;
-  return Number.isInteger(dollars)
-    ? `$${dollars}`
-    : `$${dollars.toFixed(2)}`;
+  return Number.isInteger(dollars) ? `$${dollars}` : `$${dollars.toFixed(2)}`;
 }

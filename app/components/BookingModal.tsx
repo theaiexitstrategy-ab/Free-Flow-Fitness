@@ -110,6 +110,7 @@ export default function BookingModal({
               {PARTY_PACKAGES.map((p) => (
                 <option key={p.id} value={p.id}>
                   {p.name} — ${p.price}
+                  {p.draft ? " (draft)" : ""}
                 </option>
               ))}
             </select>
