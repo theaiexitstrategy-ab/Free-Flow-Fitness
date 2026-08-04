@@ -64,12 +64,12 @@ export const INSTRUCTORS: Instructor[] = [
   },
   {
     id: "angelica",
-    name: "Angelica",
+    name: "Angelica “Jelli”",
     // pronouns: TODO
     title: "Instructor",
     photo: "COMING_SOON",
     certifications: [],
-    bio: "TODO: Angelica's bio — send a couple of sentences and I'll add them.",
+    bio: "Angelica — “Jelli” to her students — began her pole journey in 2016, drawn in because it was unlike any fitness she'd tried before and eager to build her confidence while challenging herself both physically and mentally. In her classes you can expect thorough training, intentional growth, and a supportive environment built on trust and positivity. Her favorite move to teach is the Ayesha — a full-body strength move that's as powerful as it is beautiful to finally achieve. Off the pole, you'll catch her roller skating. Fun fact: she loves wedding planning, and has planned three weddings all on her own 💜",
   },
   {
     id: "taylor-jennings",
@@ -82,11 +82,11 @@ export const INSTRUCTORS: Instructor[] = [
   },
   {
     id: "ashley",
-    name: "Ashley",
+    name: "Ashley Nicole",
     // pronouns: TODO
     title: "Instructor",
     photo: "COMING_SOON",
     certifications: [],
-    bio: "TODO: Ashley's bio — send a couple of sentences and I'll add them.",
+    bio: "Ashley began her pole journey in 2019 at Freeflow Fitness and fell in love quickly. She loves spin pole, training tricks and exploring creative pole combos and transitions. She has experience teaching students of all levels, from complete beginners to more experienced polers. Her teaching style places an emphasis on control and confidence. Ashley creates an encouraging environment where students can build on their strength, artistry and work on developing their own unique flow 💜",
   },
 ];
