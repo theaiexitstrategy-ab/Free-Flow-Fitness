@@ -20,7 +20,11 @@ const bebas = Bebas_Neue({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://free-flow-fitness.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Free Flow Fitness — Pole Fitness Studio, Bridgeton MO",
   description:
     "Come experience the sexy, flirty side of fitness. Pole & dance parties, private lessons, and weekly classes in Bridgeton, MO. Everyone welcome.",
@@ -29,6 +33,23 @@ export const metadata: Metadata = {
     description:
       "Book a party or a private lesson. Small-group pole & dance classes in Bridgeton, MO.",
     type: "website",
+    url: SITE_URL,
+    siteName: "Free Flow Fitness",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Free Flow Fitness — Pole Fitness Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Flow Fitness — Pole Fitness Studio, Bridgeton MO",
+    description:
+      "Book a party or a private lesson. Small-group pole & dance classes in Bridgeton, MO.",
+    images: ["/og-image.png"],
   },
 };
 
