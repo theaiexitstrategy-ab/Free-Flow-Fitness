@@ -37,12 +37,12 @@ export interface StudioEvent {
 export const EVENTS: StudioEvent[] = [
   // TODO: replace with real events. Example shape below (safe placeholder).
   {
-    id: "example-paint-and-pole",
-    title: "TODO: Paint & Pole Night",
-    date: "2026-09-01",
+    id: "paint-and-pole",
+    title: "Paint & Pole Night",
+    date: "2026-09-01", // TODO: real date
     category: "paint-and-pole",
-    flyer: "/images/TODO-event-flyer.jpg",
-    registrationUrl: "#TODO-registration-link",
+    flyer: "/images/event-paint-and-pole.jpg",
+    registrationUrl: "#TODO-registration-link", // TODO: registration link
     description: "TODO: short event description.",
   },
 ];

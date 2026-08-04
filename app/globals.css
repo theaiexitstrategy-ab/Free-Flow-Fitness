@@ -1389,3 +1389,20 @@ a {
   border-radius: 12px;
   border: 1px solid var(--line);
 }
+
+/* brand-themed "Coming Soon" instructor placeholder */
+.coming-soon {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--cobalt), var(--magenta));
+  color: #fff;
+  font-family: var(--font-bebas), sans-serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

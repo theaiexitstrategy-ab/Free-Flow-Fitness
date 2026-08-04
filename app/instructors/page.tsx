@@ -15,7 +15,8 @@ export default function InstructorsPage() {
 
         <div className="instructor-grid">
           {INSTRUCTORS.map((i) => {
-            const hasPhoto = !i.photo.includes("TODO");
+            const comingSoon = i.photo === "COMING_SOON";
+            const hasPhoto = !comingSoon && !i.photo.includes("TODO");
             const isOwner = i.title.toLowerCase().includes("owner");
             return (
               <article className="instructor-card" key={i.id}>
@@ -23,6 +24,10 @@ export default function InstructorsPage() {
                   {hasPhoto ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={i.photo} alt={i.name} loading="lazy" />
+                  ) : comingSoon ? (
+                    <div className="coming-soon">
+                      <span>Photo<br />Coming Soon</span>
+                    </div>
                   ) : (
                     <div className="img-placeholder">Photo TODO · 800×1000</div>
                   )}
