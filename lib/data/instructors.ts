@@ -63,13 +63,13 @@ export const INSTRUCTORS: Instructor[] = [
     bio: "An exotic dancer for 15 years, Bex loves guiding non-performers toward empowerment through pole. Her motto: “Grace is just strength showing off.”",
   },
   {
-    id: "lauren-meredith",
-    name: "Lauren Meredith",
-    pronouns: "she/her",
+    id: "angelica",
+    name: "Angelica",
+    // pronouns: TODO
     title: "Instructor",
     photo: "COMING_SOON",
     certifications: [],
-    bio: "A lifelong dancer who adapted her background to vertical pole. Taking life one step at a time and modeling on the side, Lauren is here to do cool things and look beautiful in the process.",
+    bio: "TODO: Angelica's bio — send a couple of sentences and I'll add them.",
   },
   {
     id: "taylor-jennings",
@@ -81,12 +81,12 @@ export const INSTRUCTORS: Instructor[] = [
     bio: "Taylor began pole in 2019 after her pregnancy. Her classes are a nice mix of chaos and structure, where students learn while hanging out together.",
   },
   {
-    id: "yolanda-green",
-    name: "Yolanda “Yo” Green",
-    pronouns: "she/her",
+    id: "ashley",
+    name: "Ashley",
+    // pronouns: TODO
     title: "Instructor",
     photo: "COMING_SOON",
-    certifications: ["Certified Xtreme Hip Hop Instructor"],
-    bio: "With 3.5 years of experience, Yo teaches high-energy cardio that blends step aerobics with hip hop. Her philosophy: exercise should not feel like a chore.",
+    certifications: [],
+    bio: "TODO: Ashley's bio — send a couple of sentences and I'll add them.",
   },
 ];
