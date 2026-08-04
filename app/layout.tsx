@@ -20,8 +20,23 @@ const bebas = Bebas_Neue({
   display: "swap",
 });
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://free-flow-fitness.vercel.app";
+const FALLBACK_SITE_URL = "https://free-flow-fitness.vercel.app";
+
+// Resolve a guaranteed-valid absolute URL. A malformed NEXT_PUBLIC_SITE_URL
+// (e.g. missing the https:// scheme) must NOT crash the build via new URL(),
+// so we normalize + guard and fall back if it can't be parsed.
+function resolveSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return FALLBACK_SITE_URL;
+  const withProto = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(withProto).toString().replace(/\/$/, "");
+  } catch {
+    return FALLBACK_SITE_URL;
+  }
+}
+
+const SITE_URL = resolveSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
