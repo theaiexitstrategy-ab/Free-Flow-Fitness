@@ -31,6 +31,13 @@ export default function LocationContact() {
           Our mission is to create a safe place to empower women, promote body
           confidence and self-care, and help you fall in love with fitness.
         </p>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="location-accent"
+          src="/images/neon-happy-place.jpg"
+          alt="&quot;This is my happy place&quot; neon sign at Free Flow Fitness"
+          loading="lazy"
+        />
       </div>
     </section>
   );

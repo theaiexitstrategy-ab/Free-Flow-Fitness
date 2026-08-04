@@ -1,10 +1,8 @@
-// Placeholder band for the refreshed Home images Adrianne will supply.
-// Swap each placeholder for an <img> once files land in /public/images.
-// Ideal dimensions noted on each tile.
+// Home image band — real studio photos.
 const SLOTS = [
-  { label: "Studio / class in action", dim: "1200×900" },
-  { label: "Pole / dance moment", dim: "1200×900" },
-  { label: "Community / group vibe", dim: "1200×900" },
+  { src: "/images/class-session.jpg", label: "Small-group classes", alt: "A Free Flow Fitness class in session" },
+  { src: "/images/class-duo.jpg", label: "Find your flow", alt: "Two dancers on the pole at Free Flow Fitness" },
+  { src: "/images/community-group.jpg", label: "Everyone's welcome", alt: "A Free Flow Fitness class group" },
 ];
 
 export default function HomeImages() {
@@ -13,10 +11,11 @@ export default function HomeImages() {
       <div className="wrap">
         <div className="home-images-grid">
           {SLOTS.map((s) => (
-            <div className="img-placeholder tall" key={s.label}>
-              <span>{s.label}</span>
-              <small>TODO image · {s.dim}</small>
-            </div>
+            <figure className="home-image" key={s.src}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={s.src} alt={s.alt} loading="lazy" />
+              <figcaption>{s.label}</figcaption>
+            </figure>
           ))}
         </div>
       </div>

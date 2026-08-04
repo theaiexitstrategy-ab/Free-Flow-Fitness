@@ -38,5 +38,16 @@ export const INSTRUCTORS: Instructor[] = [
     certifications: ["Certified Xtreme Hip Hop Instructor"],
     bio: "TODO: Yo's bio.",
   },
+  {
+    id: "nici-worstell",
+    name: "Nici (Nicole Worstell)",
+    // pronouns: "TODO",
+    title: "Instructor",
+    // NOTE: this is the photo tagged "Instructor: Nici" on the studio mirror.
+    // Swap for a face-forward headshot if Adrianne prefers.
+    photo: "/images/instructor-nici.jpg",
+    certifications: [], // TODO: Nici's certifications
+    bio: "TODO: Nici's bio.",
+  },
   // TODO: add the rest of the instructors here.
 ];

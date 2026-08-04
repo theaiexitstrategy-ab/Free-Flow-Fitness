@@ -26,6 +26,9 @@ export default function ClassesPage() {
           <p>Tap any class to see the details, then head to the schedule to book.</p>
         </div>
 
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="classes-accent" src="/images/platform-heels.jpg" alt="Platform heels at Free Flow Fitness" loading="lazy" />
+
         <Accordion items={items} />
 
         <div className="private-class-cta">

@@ -9,9 +9,11 @@ export const metadata: Metadata = { title: "Private Parties — Free Flow Fitnes
 export default function PartiesPage() {
   return (
     <main>
-      {/* ── redesigned banner ─────────────────────────────── */}
-      <section className="party-banner">
-        <div className="wrap">
+      {/* ── redesigned banner (real photo background + overlay) ── */}
+      <section className="party-banner has-bg">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="party-banner-bg" src="/images/group-banner-wide.jpg" alt="" aria-hidden="true" />
+        <div className="wrap party-banner-inner">
           <span className="eyebrow">Private Parties</span>
           <h1>Come Party With Us</h1>
           <p>
@@ -36,6 +38,13 @@ export default function PartiesPage() {
                 <p>{t.blurb}</p>
               </div>
             ))}
+          </div>
+
+          <div className="party-gallery" style={{ marginTop: 44, marginBottom: 0 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/party-group.jpg" alt="A party group celebrating at Free Flow Fitness" loading="lazy" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/studio-interior.jpg" alt="Inside the Free Flow Fitness studio" loading="lazy" />
           </div>
         </div>
       </section>
