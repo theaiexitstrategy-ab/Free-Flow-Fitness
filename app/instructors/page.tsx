@@ -23,7 +23,12 @@ export default function InstructorsPage() {
                 <div className="instructor-photo">
                   {hasPhoto ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={i.photo} alt={i.name} loading="lazy" />
+                    <img
+                      src={i.photo}
+                      alt={i.name}
+                      loading="lazy"
+                      style={i.focus ? { objectPosition: i.focus } : undefined}
+                    />
                   ) : comingSoon ? (
                     <div className="coming-soon">
                       <span>Photo<br />Coming Soon</span>

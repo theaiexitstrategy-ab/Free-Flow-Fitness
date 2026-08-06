@@ -16,6 +16,8 @@ export interface Instructor {
   title: string;
   /** path under /public, or the literal "COMING_SOON" for a placeholder */
   photo: string;
+  /** optional CSS object-position for the card crop (e.g. "32% 30%") */
+  focus?: string;
   /** shown as badges next to the name */
   certifications: string[];
   bio: string;
@@ -67,7 +69,7 @@ export const INSTRUCTORS: Instructor[] = [
     name: "Angelica “Jelli”",
     // pronouns: TODO
     title: "Instructor",
-    photo: "COMING_SOON",
+    photo: "/images/instructor-jelli.jpg",
     certifications: [],
     bio: "Angelica — “Jelli” to her students — began her pole journey in 2016, drawn in because it was unlike any fitness she'd tried before and eager to build her confidence while challenging herself both physically and mentally. In her classes you can expect thorough training, intentional growth, and a supportive environment built on trust and positivity. Her favorite move to teach is the Ayesha — a full-body strength move that's as powerful as it is beautiful to finally achieve. Off the pole, you'll catch her roller skating. Fun fact: she loves wedding planning, and has planned three weddings all on her own 💜",
   },
@@ -85,8 +87,18 @@ export const INSTRUCTORS: Instructor[] = [
     name: "Ashley Nicole",
     // pronouns: TODO
     title: "Instructor",
-    photo: "COMING_SOON",
+    photo: "/images/instructor-ashley.jpg",
     certifications: [],
     bio: "Ashley began her pole journey in 2019 at Freeflow Fitness and fell in love quickly. She loves spin pole, training tricks and exploring creative pole combos and transitions. She has experience teaching students of all levels, from complete beginners to more experienced polers. Her teaching style places an emphasis on control and confidence. Ashley creates an encouraging environment where students can build on their strength, artistry and work on developing their own unique flow 💜",
+  },
+  {
+    id: "imani",
+    name: "Imani",
+    // pronouns: TODO
+    title: "Instructor",
+    photo: "/images/instructor-imani.jpg",
+    focus: "32% 30%", // landscape action shot — keep her face in the card crop
+    certifications: [],
+    bio: "TODO: Imani's bio — send a couple of sentences and I'll add them.",
   },
 ];
