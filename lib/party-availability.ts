@@ -1,20 +1,28 @@
 // Party slot availability for /book. Pure + isomorphic: the server computes
 // open slots with it, and re-checks a chosen slot at submit time.
 //
-// ⚠️ PLACEHOLDER RULES — PARTY_HOURS, MIN_NOTICE_DAYS, BOOKING_WINDOW_DAYS and
-// BLACKOUT_DATES are stand-ins until Adrianne confirms the studio's real party
-// hours. Only SETUP_BUFFER_MIN comes from studio policy ("15 minutes max for
-// setup and cleanup" — lib/data/parties.ts). The class schedule it avoids
+// Party hours: "evenings and weekends" (Aaron, 2026-09-24). The exact clock
+// times below are assumptions — adjust PARTY_HOURS if the studio's differ.
+// MIN_NOTICE_DAYS, BOOKING_WINDOW_DAYS and BLACKOUT_DATES are still
+// placeholders. SETUP_BUFFER_MIN is studio policy ("15 minutes max for setup
+// and cleanup" — lib/data/parties.ts). The class schedule it avoids
 // (lib/schedule.ts) is itself mostly placeholder.
 import { CLASS_SERVICES } from "./schedule";
 
 export const TZ = "America/Chicago";
 
-/** Weekday (0 = Sun … 6 = Sat) → party windows as [open, close] "HH:MM". PLACEHOLDER. */
+const EVENINGS: [string, string][] = [["17:00", "22:00"]]; // assumed 5–10 PM
+const WEEKENDS: [string, string][] = [["10:00", "22:00"]]; // assumed 10 AM–10 PM
+
+/** Weekday (0 = Sun … 6 = Sat) → party windows as [open, close] "HH:MM". */
 export const PARTY_HOURS: Record<number, [string, string][]> = {
-  5: [["17:00", "22:00"]], // Fri — TODO confirm
-  6: [["10:00", "22:00"]], // Sat — TODO confirm
-  0: [["12:00", "20:00"]], // Sun — TODO confirm
+  0: WEEKENDS,
+  1: EVENINGS,
+  2: EVENINGS,
+  3: EVENINGS,
+  4: EVENINGS,
+  5: EVENINGS,
+  6: WEEKENDS,
 };
 /** Earliest bookable day, counted from today (Chicago). PLACEHOLDER. */
 export const MIN_NOTICE_DAYS = 3;

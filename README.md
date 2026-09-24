@@ -104,7 +104,8 @@ time → headcount/add-ons with a live estimate → contact → deposit via the 
 portal → Stripe flow. Deep-link a package with `/book?package=ultimate-flow`.
 
 - Pricing, durations, headcount caps and add-ons: `lib/packages.ts` (`booking` + `ADD_ONS`).
-- Slot rules: `lib/party-availability.ts` — **party hours, notice, window and blackout dates are
+- Slot rules: `lib/party-availability.ts` — party hours are evenings (5–10 PM) and weekends
+  (10 AM–10 PM), exact times assumed; **notice, window and blackout dates are
   placeholders** until the studio confirms them. Weekly classes (`lib/schedule.ts`) and a 15-min
   setup/cleanup buffer block time.
 - Taken slots: `lib/party-bookings.ts` reads `freeflow_bookings` (paid/confirmed parties, plus

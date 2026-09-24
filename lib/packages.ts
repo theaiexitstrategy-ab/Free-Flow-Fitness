@@ -141,7 +141,7 @@ export const PARTY_PACKAGES: PartyPackage[] = [
     ],
     danceStyles: [],
     ctaLabel: "Book This Party",
-    // "approximately 2 hours" per the form; slot length TODO confirm.
+    // "approximately 2 hours" per the form; booked as a 2-hour slot (Aaron, 2026-09-24).
     booking: { durationMin: 120, includedGuests: 4, extraGuestPrice: 70, maxGuests: 10, addOns: ["snacks"] },
   },
 
