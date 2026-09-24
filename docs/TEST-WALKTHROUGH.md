@@ -25,11 +25,11 @@ npm run dev      # http://localhost:3000
 
 ### 2. Party booking (deposit package)
 - [ ] Click **Book This Party** on Fab Flow → modal opens, package preselected,
-      deposit callout reads **$150**.
+      deposit callout reads **$200**.
 - [ ] Submit without the consent box checked → inline error.
 - [ ] Fill it in, check consent, submit. In demo mode you'll see the success
       message (no Stripe redirect). Server console logs the payload with
-      `"deposit_cents":15000`.
+      `"deposit_cents":20000`.
 
 ### 3. Body Painting (inquiry only)
 - [ ] Book This Party on Body Painting → callout reads **reserve-by-request**,
@@ -61,7 +61,7 @@ Prereqs: build the backend with `docs/GOELEV8-PORTAL-PROMPT.md`; set
 `GOELEV8_WEBHOOK_SECRET` here in `.env.local`.
 
 1. **Party → Stripe → SMS**
-   - Submit a Fab Flow booking → you're redirected to Stripe Checkout for **$150**.
+   - Submit a Fab Flow booking → you're redirected to Stripe Checkout for **$200**.
    - Pay with test card `4242 4242 4242 4242`, any future expiry/CVC.
    - You return to `/?booking=success` and the **StatusBanner** confirms.
    - A **request-received** SMS arrives within 60s of submit; a **deposit-paid**

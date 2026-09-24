@@ -23,6 +23,7 @@ export interface PartyAddon {
 
 export const PARTY_ADDONS: PartyAddon[] = [
   { label: "Themes", detail: "$100" },
+  { label: "Snacks / hors d'oeuvres", detail: "$100" },
   { label: "Non-dance activities", detail: "additional fees — inquire within" },
   { label: "Sober / dry events", detail: "available, per instructor" },
   {

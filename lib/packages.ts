@@ -1,11 +1,16 @@
 // Free Flow Fitness — party package catalog (source of truth for the funnel).
-// Prices/deposits mirror the approved reference design.
+// Pricing confirmed by Aaron 2026-09-24: price covers up to 7 people, +$25 per
+// additional person; 1 hr $300 / 90 min $400 / 2 hr $500; deposit = 50%.
+// Add-ons: theme $100, snacks/hors d'oeuvres $100.
 //
 // deposit flow (party customer -> studio):
-//   fab-flow      $300  -> $150 deposit (50%)
-//   ultimate-flow $400  -> $200 deposit (50%)
-//   private-group $225  -> $112.50 deposit (50%)
-//   body-painting $300  -> INQUIRY ONLY (no customer deposit listed / confirmed)
+//   fab-flow      $400  -> $200 deposit (50%)
+//   ultimate-flow $500  -> $250 deposit (50%)
+//   private-group $300  -> $150 deposit (50%)
+//   body-painting $300  -> INQUIRY ONLY (pricing unchanged; no customer deposit confirmed)
+//
+// KEEP IN SYNC with PACKAGE_DEPOSIT_CENTS in goelev8.ai-portal
+// api/freeflow/bookings.js — the portal re-derives the Stripe charge from its own map.
 //
 // DRAFT packages (draft: true) are PROPOSALS pending Adrianne's approval. They
 // are inquiry-only (no deposit) so nothing can be charged until confirmed.
@@ -45,9 +50,9 @@ export const PARTY_PACKAGES: PartyPackage[] = [
   {
     id: "fab-flow",
     name: "Fab Flow Party",
-    price: 300,
-    depositCents: 15000,
-    depositLabel: "$150 deposit",
+    price: 400,
+    depositCents: 20000,
+    depositLabel: "$200 deposit",
     duration: "90 minutes — 60 min dancing, 30 min mixing & mingling",
     features: [
       "90 minutes — 60 min dancing, 30 min mixing & mingling",
@@ -61,15 +66,15 @@ export const PARTY_PACKAGES: PartyPackage[] = [
   {
     id: "ultimate-flow",
     name: "Ultimate Flow Party",
-    price: 400,
-    depositCents: 20000,
-    depositLabel: "$200 deposit",
+    price: 500,
+    depositCents: 25000,
+    depositLabel: "$250 deposit",
     featured: true,
     tag: "Most Popular",
     duration: "2 hours — 90 min dancing, 30 min mixing & mingling",
     features: [
       "2 hours — 90 min dancing, 30 min mixing & mingling",
-      "Up to 7 people ($25/each additional, up to 20 total)",
+      "Up to 7 people ($25/each additional, up to 25 total)",
       "Gift for the guest of honor",
       "Choice of dance: Pole, Chair, Burlesque, Sexy Floorwork, or Twerk",
       "Refreshments included on request",
@@ -80,9 +85,9 @@ export const PARTY_PACKAGES: PartyPackage[] = [
   {
     id: "private-group",
     name: "Private Group Class",
-    price: 225,
-    depositCents: 11250,
-    depositLabel: "$112.50 deposit",
+    price: 300,
+    depositCents: 15000,
+    depositLabel: "$150 deposit",
     duration: "60 minutes, Level 1-style class",
     features: [
       "60 minutes, Level 1-style class",
@@ -106,7 +111,7 @@ export const PARTY_PACKAGES: PartyPackage[] = [
       "2 hours, extendable with more participants",
       "Up to 4 people ($70/each additional, up to 10 total)",
       "Canvas, paints & brushes for everyone",
-      "Refreshments +$20",
+      "Snacks/hors d'oeuvres +$100",
     ],
     danceStyles: [],
     ctaLabel: "Book This Party",

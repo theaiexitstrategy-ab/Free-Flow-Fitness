@@ -25,8 +25,8 @@ Browser <── redirect to Stripe Checkout (deposit packages only)
         <── returns to /?booking=success|cancelled  (StatusBanner)
 ```
 
-- **Party packages** (`lib/packages.ts`): Fab Flow $300 / **$150 deposit**,
-  Ultimate Flow $400 / **$200 deposit**, Private Group $225 / **$112.50 deposit**,
+- **Party packages** (`lib/packages.ts`): Fab Flow $400 / **$200 deposit**,
+  Ultimate Flow $500 / **$250 deposit**, Private Group $300 / **$150 deposit**,
   Body Painting $300 / **inquiry only** (no customer deposit confirmed yet).
 - **Private lessons**: inquiry / hold only — **no price shown, no charge** (pricing
   not finalized; see the flagged comment in `app/components/PrivateLesson.tsx`).

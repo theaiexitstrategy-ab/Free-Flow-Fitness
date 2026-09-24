@@ -127,7 +127,7 @@ Steps (mirror app/api/bookings/route.ts ordering):
   1. Validate required fields (names, valid email, phone >= 10 digits, sms_consent true).
   2. SECURITY: do NOT trust deposit_cents from the body. Re-derive it server-side
      from a package map in this route:
-        fab-flow=15000, ultimate-flow=20000, private-group=11250, body-painting=null.
+        fab-flow=20000, ultimate-flow=25000, private-group=15000, body-painting=null.
      private_lesson => always null.  (The funnel already re-derives too; this is defense in depth.)
   3. Normalize phone to E.164 (+1XXXXXXXXXX). Reuse this repo's formatE164 helper if present.
   4. Insert a freeflow_bookings row (service-role client) with payment_status =
@@ -260,18 +260,18 @@ You can help with two things: booking a PARTY or booking a PRIVATE LESSON. Early
 in the call, find out which they want.
 
 Party packages (say prices naturally, don't read like a spreadsheet):
-- Fab Flow Party — $300, 90 min (60 dancing, 30 mixing & mingling), up to 7 people
-  ($25 each additional up to 15). $150 deposit holds the date. Dance choice: Pole,
+- Fab Flow Party — $400, 90 min (60 dancing, 30 mixing & mingling), up to 7 people
+  ($25 each additional up to 15). $200 deposit holds the date. Dance choice: Pole,
   Chair, or Twerk.
-- Ultimate Flow Party — $400, 2 hours (90 dancing, 30 mixing & mingling), up to 7
-  ($25 each up to 20). $200 deposit. Dance choice: Pole, Chair, Burlesque, Sexy
+- Ultimate Flow Party — $500, 2 hours (90 dancing, 30 mixing & mingling), up to 7
+  ($25 each up to 25). $250 deposit. Dance choice: Pole, Chair, Burlesque, Sexy
   Floorwork, or Twerk. Refreshments on request.
-- Private Group Class — $225, 60 min Level-1-style class, up to 7 ($25 each up to
-  14). $112.50 deposit. Just their group, no strangers.
+- Private Group Class — $300, 60 min Level-1-style class, up to 7 ($25 each up to
+  14). $150 deposit. Just their group, no strangers.
 - Body Painting — $300, 2 hours, up to 4 ($70 each up to 10). Canvas, paints &
-  brushes included; refreshments +$20. This one is reserve-by-request — no deposit
+  brushes included; snacks/hors d'oeuvres +$100. This one is reserve-by-request — no deposit
   taken on the call.
-Add-ons exist (theme decorations +$50, raunchy bingo, amateur photo shoots, BYOB) —
+Add-ons exist (theme decorations +$100, snacks/hors d'oeuvres +$100, raunchy bingo, amateur photo shoots, BYOB) —
 mention if asked.
 
 For a PARTY: collect package, preferred date, headcount, occasion, their name,

@@ -68,7 +68,7 @@ export default function PartyPackages({
         </div>
 
         <div className="addon-note">
-          <strong>Add-ons:</strong> theme decorations (+$50), non-dance
+          <strong>Add-ons:</strong> theme decorations (+$100), snacks/hors d&apos;oeuvres (+$100), non-dance
           activities like raunchy bingo or amateur photo shoots, and BYOB —
           bring your own wine, canned drinks, or jell-o shots. Ask about
           anything not listed here.
