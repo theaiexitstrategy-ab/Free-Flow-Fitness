@@ -96,3 +96,16 @@ with the service-role key (RLS on, no policies).
 | `SUPABASE_URL` | GoElev8.AI Supabase URL (server-only) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Service-role key for inserts/reads (server-only) |
 | `INTAKE_ADMIN_PASSWORD` | Password for `/intake/responses` |
+
+## Party booking page (`/book`)
+
+Full-page party booking (intended for `freeflowfitnessstl.com/book`): package → open date → start
+time → headcount/add-ons with a live estimate → contact → deposit via the existing `/api/book` →
+portal → Stripe flow. Deep-link a package with `/book?package=ultimate-flow`.
+
+- Pricing, durations, headcount caps and add-ons: `lib/packages.ts` (`booking` + `ADD_ONS`).
+- Slot rules: `lib/party-availability.ts` — **party hours, notice, window and blackout dates are
+  placeholders** until the studio confirms them. Weekly classes (`lib/schedule.ts`) and a 15-min
+  setup/cleanup buffer block time.
+- Taken slots: `lib/party-bookings.ts` reads `freeflow_bookings` (paid/confirmed parties, plus
+  checkouts under 30 min old). `/api/book` re-checks the slot on submit and returns 409 if taken.

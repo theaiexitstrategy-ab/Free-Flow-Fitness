@@ -44,7 +44,30 @@ export interface PartyPackage {
   danceStyles: string[];
   /** CTA copy from the reference. */
   ctaLabel: string;
+  /** Bookable on /book (slot + live estimate). Absent on draft/inquiry-less tiers. */
+  booking?: PackageBooking;
 }
+
+export type AddOnId = "theme" | "snacks";
+
+export interface PackageBooking {
+  /** Length of the party itself, used for slot availability. */
+  durationMin: number;
+  /** People covered by the base price. */
+  includedGuests: number;
+  /** Price per person over includedGuests, whole dollars. */
+  extraGuestPrice: number;
+  /** Largest total group allowed. */
+  maxGuests: number;
+  /** Add-ons offered for this package (mirrors the request form's sections). */
+  addOns: AddOnId[];
+}
+
+// Add-ons confirmed 2026-09-24.
+export const ADD_ONS: Record<AddOnId, { label: string; price: number }> = {
+  theme: { label: "Theme & decorations", price: 100 },
+  snacks: { label: "Snacks / hors d'oeuvres", price: 100 },
+};
 
 export const PARTY_PACKAGES: PartyPackage[] = [
   {
@@ -62,6 +85,7 @@ export const PARTY_PACKAGES: PartyPackage[] = [
     ],
     danceStyles: ["Pole", "Chair", "Twerk"],
     ctaLabel: "Book This Party",
+    booking: { durationMin: 90, includedGuests: 7, extraGuestPrice: 25, maxGuests: 15, addOns: ["theme", "snacks"] },
   },
   {
     id: "ultimate-flow",
@@ -81,6 +105,7 @@ export const PARTY_PACKAGES: PartyPackage[] = [
     ],
     danceStyles: ["Pole", "Chair", "Burlesque", "Sexy Floorwork", "Twerk"],
     ctaLabel: "Book This Party",
+    booking: { durationMin: 120, includedGuests: 7, extraGuestPrice: 25, maxGuests: 25, addOns: ["theme", "snacks"] },
   },
   {
     id: "private-group",
@@ -96,6 +121,7 @@ export const PARTY_PACKAGES: PartyPackage[] = [
     ],
     danceStyles: [],
     ctaLabel: "Book This Class",
+    booking: { durationMin: 60, includedGuests: 7, extraGuestPrice: 25, maxGuests: 14, addOns: [] },
   },
   {
     id: "body-painting",
@@ -115,6 +141,8 @@ export const PARTY_PACKAGES: PartyPackage[] = [
     ],
     danceStyles: [],
     ctaLabel: "Book This Party",
+    // "approximately 2 hours" per the form; slot length TODO confirm.
+    booking: { durationMin: 120, includedGuests: 4, extraGuestPrice: 70, maxGuests: 10, addOns: ["snacks"] },
   },
 
   // ── DRAFT tiers (pending Adrianne's approval — inquiry-only, no charge) ──
@@ -155,6 +183,16 @@ export const PARTY_PACKAGES: PartyPackage[] = [
     ctaLabel: "Request This Party",
   },
 ];
+
+/** Estimated total in whole dollars (base + extra guests + add-ons). */
+export function estimateTotal(pkg: PartyPackage, guests: number, addOns: AddOnId[]): number {
+  const b = pkg.booking;
+  if (!b) return pkg.price;
+  const extra = Math.max(0, guests - b.includedGuests) * b.extraGuestPrice;
+  return pkg.price + extra + addOns.filter((a) => b.addOns.includes(a)).reduce((n, a) => n + ADD_ONS[a].price, 0);
+}
+
+export const BOOKABLE_PACKAGES = PARTY_PACKAGES.filter((p) => p.booking && !p.draft);
 
 export function getPackage(id: PackageId): PartyPackage | undefined {
   return PARTY_PACKAGES.find((p) => p.id === id);
