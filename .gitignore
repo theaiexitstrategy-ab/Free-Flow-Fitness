@@ -34,3 +34,5 @@ next-env.d.ts
 
 # local logo backup (not for deploy)
 public/logos/ff-cobalt-original.png
+
+.vercel

@@ -73,3 +73,26 @@ See [`docs/TEST-WALKTHROUGH.md`](docs/TEST-WALKTHROUGH.md).
 **Do not deploy to production until reviewed.** Intended target: its own Vercel
 project. The private-lesson price and any Body Painting deposit must be confirmed
 before the portal wires them to real Stripe charges.
+
+## Party-request intake agent (`/intake`)
+
+Replaces the Google Form + Sheet ("Free Flow Fitness Party Request Form").
+
+- **`/intake`** — chat agent (Claude `claude-sonnet-5`, streamed) that asks the form's
+  questions conversationally, confirms a summary, then calls `submit_intake`.
+- **`/intake/form`** — the same questions as a plain accessible form (same endpoint).
+- **`/intake/responses`** — password-protected dashboard: list, detail + transcript,
+  status (new / contacted / done), CSV export in the original form's column order.
+
+`data/intake-form.json` is the single source of truth (questions, options, required
+flags, branching). Regenerate it from the live form with
+`node scripts/extract-intake-form.mjs`. Submissions land in `ffs_intake_submissions`
+in the GoElev8.AI Supabase project (`supabase/migrations/`), written server-side only
+with the service-role key (RLS on, no policies).
+
+| Var | Purpose |
+|-----|---------|
+| `ANTHROPIC_API_KEY` | Claude API key for the chat agent (server-only) |
+| `SUPABASE_URL` | GoElev8.AI Supabase URL (server-only) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Service-role key for inserts/reads (server-only) |
+| `INTAKE_ADMIN_PASSWORD` | Password for `/intake/responses` |
